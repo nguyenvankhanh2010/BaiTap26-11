@@ -1,0 +1,24 @@
+type User {
+    id: ID!
+    fullname: String!
+    email: String!
+    phone: String!
+    categories: [Category]
+}
+
+type Category {
+    id: ID!
+    name: String!
+    images: String
+    users: [User]
+}
+
+type Query {
+    getAllUsers: [User]
+    getAllCategories: [Category]
+    getCategoriesByUser(userId: ID!): [Category] 
+    createUser(fullname: String!, email: String!, password: String!, phone: String!): User
+    updateUser(id: ID!, fullname: String, email: String, password: String, phone: String): User
+    deleteUser(id: ID!): Boolean
+    
+}
